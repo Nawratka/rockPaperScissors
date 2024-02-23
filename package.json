@@ -1,0 +1,19 @@
+{
+  "name": "rockpaperscissors",
+  "version": "1.0.0",
+  "description": "Game Rock Paper Scissors",
+  "default": "index.html",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "KamilaN",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "parcel": "^2.11.0"
+  },
+  "dependencies": {
+    "core-js": "^3.36.0"
+  }
+}

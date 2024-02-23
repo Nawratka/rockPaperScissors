@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
     <title>Rock Paper Scissors game</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="src/sass/style.scss">
+    <script src="src/js/script.js" defer type="module"></script>
 </head>
 
 <body>
@@ -17,22 +17,22 @@
             <h1 class="game__title">Rock Paper Scissors</h1>
             <p class="game__baner">✊✋🖖</p>
         </div>
-        <div class="game__play">
+        <!-- <div class="game__play">
             <div class="game__result-box">
                 <div class="game__player">
                     <p class="game__player-name">Player</p>
-                    <p class="game__player-result">1</p>
+                    <p class="game__player-result">0</p>
                 </div>
                 <span>:</span>
                 <div class="game__player">
-                    <p class="game__player-result">2</p>
+                    <p class="game__player-result">0</p>
                     <p class="game__player-name">Computer</p>
                 </div>
             </div>
             <div class="game__board">
-                <div class="game__part game__part--player">🖖</div>
+                <div class="game__part game__part--player"></div>
                 <span>VS</span>
-                <div class="game__part game__part--computer">✊</div>
+                <div class="game__part game__part--computer"></div>
             </div>
             <div class="game__options">
                 <p class="game__options-text">Choose your move</p>
@@ -40,13 +40,14 @@
                 <span class="game__option" data-option="paper">✋</span>
                 <span class="game__option" data-option="scissors">🖖</span>
             </div>
-        </div>
-        <!-- <div class="game__new-game">
+        </div> -->
+        <div class="game__new-game">
             <p class="game__question">Choose amount of games: </p>
             <span class="game__amount" data-amount="1">1</span>
             <span class="game__amount" data-amount="3">3</span>
             <span class="game__amount" data-amount="5">5</span>
-        </div> -->
+        </div>
+        
         <!-- <div class="game__end">
             <div class="game__result-box">
                 <div class="game__player">
