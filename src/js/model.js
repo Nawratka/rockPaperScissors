@@ -2,6 +2,7 @@ export const state = {
   playerScore: 0,
   computerScore: 0,
   toScore: 1,
+  currRound: 0
 };
 
 // GENERATES CHOICE OF COMPUTER. RETURN RANDOM INT TRANSFORMED INTO STRING - GAME OPTION
@@ -28,7 +29,7 @@ export const choiceOfComputer = function () {
   return computerChoice;
 };
 
-export const singleGamePoints = function (playerChoice, computerChoice) {
+export const awardingPoint = function (playerChoice, computerChoice) {
   // REMIS
   if (playerChoice === computerChoice) return;
 

@@ -1,3 +1,4 @@
+import 'core-js/stable';
 class startView {
   _parentElement = document.querySelector('.game');
   _newGameContainer = document.querySelector('.game__new-game');

@@ -1,3 +1,5 @@
+import 'core-js/stable';
+
 class gameView {
   _parentElement = document.querySelector('.game');
 
@@ -44,7 +46,6 @@ class gameView {
   }
 
   renderChoices(playerChoice, computerChoice) {
-    // console.log(object);
     const playerBoard = document.querySelector('.game__part--player');
     const computerBoard = document.querySelector('.game__part--computer');
 
@@ -60,9 +61,29 @@ class gameView {
 
   showCurrentResult(playerScore, computerScore) {
     const playerResult = document.querySelector('.game__player-result--player');
-    const computerResult = document.querySelector('.game__player-result--computer');
+    const computerResult = document.querySelector(
+      '.game__player-result--computer'
+    );
     playerResult.textContent = playerScore;
     computerResult.textContent = computerScore;
+  }
+
+  removePrevChoices() {
+    const playerBoard = document.querySelector('.game__part--player');
+    const computerBoard = document.querySelector('.game__part--computer');
+
+    playerBoard.classList.add('addAnimationLeft');
+    computerBoard.classList.add('addAnimationRight');
+
+    playerBoard.addEventListener('animationend', () => {
+      playerBoard.innerHTML = '';
+      playerBoard.classList.remove('addAnimationLeft');
+    });
+
+    computerBoard.addEventListener('animationend', () => {
+      computerBoard.innerHTML = '';
+      computerBoard.classList.remove('addAnimationRight');
+    });
   }
 }
 
