@@ -2,6 +2,7 @@ import * as model from './model.js';
 import startView from './views/startView.js';
 import gameView from './views/gameView.js';
 import 'core-js/stable';
+import endView from './views/endView.js';
 
 /*
 Option number reference: 
@@ -42,12 +43,22 @@ const controlGame = function (playerChoice) {
     model.state.computerScore
   );
 
-  // CHECK IF END OF GAME
-  if (model.checkScores()) console.log('koniec gry');
-
+  // CHECK IF END OF GAME AND WHO FINALLY WINS
+  if (model.checkScores()) {
+    let winner = model.state.playerScore === +model.state.toScore ? 'player' : 'computer';
+    const playContainer = document.querySelector('.game__play')
+    playContainer.classList.add('hidden')
+    endView.render(winner);
+    endView.addHandlerNewGameBtn(prepareNewGame);
+  } else
   // REMOVE PREV CHOICES ICONS FROM BOARD
   gameView.removePrevChoices();
 };
+
+// START GAME FROM BEGIN + CLEAR STATE
+const prepareNewGame = function() {
+  console.log('nowa gra');
+}
 
 const init = function () {
   startView.addHandlerStart(controlStart);

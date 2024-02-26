@@ -139,19 +139,23 @@ body {
     }
   }
   &__new-btn {
-    margin-top: 1.5rem;
-    padding: 1rem;
     width: 100%;
-    background-color: #dedede;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background-color: #ff5b1b;
     border: none;
     border-radius: 10px;
+    font-size: 1.2rem;
+    color: white;
     text-transform: uppercase;
-    font-size: 1rem;
-    box-shadow: 3px 3px 10px 0px rgb(136, 133, 127);
-    transition: box-shadow 0.3s;
+    letter-spacing: 1px;
+    box-shadow: 3px 3px 0 #111;
+    cursor: pointer;
+    transition: box-shadow 0.3s, background-color 0.3s;
   }
   &__new-btn:hover {
-    box-shadow: 3px 3px 10px 0px rgb(249, 167, 3);
+    box-shadow: 3px 3px 5px 0px rgb(182, 182, 182);
+    background-color: #e34000;
   }
 }
 
@@ -164,33 +168,33 @@ body {
 // ANIMATION FOR ICONS ON GAME BOARD
 
 .addAnimationLeft {
-	animation: fadeOutLeft 0.4s linear 0.8s 1 normal;
+  animation: fadeOutLeft 0.4s linear 0.8s 1 normal;
 }
 .addAnimationRight {
-	animation: fadeOutRight 0.4s linear 0.8s 1 normal;
-	// animation: fadeOutRight 0.4s linear 0.8s 1 normal forwards;
+  animation: fadeOutRight 0.4s linear 0.8s 1 normal;
+  // animation: fadeOutRight 0.4s linear 0.8s 1 normal forwards;
 }
 
 @keyframes fadeOutLeft {
-	0% {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-	100% {
-		opacity: 0;
-		transform: translateX(-50px);
-	}
+  100% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
 }
 
 @keyframes fadeOutRight {
-	0% {
-		opacity: 1;
-		transform: translateX(0);
-	}
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-	100% {
-		opacity: 0;
-		transform: translateX(50px);
-	}
+  100% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
 }
