@@ -1,8 +1,7 @@
 export const state = {
   playerScore: 0,
   computerScore: 0,
-  toScore: 1,
-  currRound: 0
+  toScore: 1
 };
 
 // GENERATES CHOICE OF COMPUTER. RETURN RANDOM INT TRANSFORMED INTO STRING - GAME OPTION

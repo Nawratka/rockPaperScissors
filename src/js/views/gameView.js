@@ -1,4 +1,5 @@
 import 'core-js/stable';
+import * as model from '../model.js';
 
 class gameView {
   _parentElement = document.querySelector('.game');
@@ -14,11 +15,11 @@ class gameView {
             <div class="game__result-box">
                 <div class="game__player">
                     <p class="game__player-name">Player</p>
-                    <p class="game__player-result game__player-result--player">0</p>
+                    <p class="game__player-result game__player-result--player">${model.state.playerScore}</p>
                 </div>
                 <span>:</span>
                 <div class="game__player">
-                    <p class="game__player-result game__player-result--computer">0</p>
+                    <p class="game__player-result game__player-result--computer">${model.state.computerScore}</p>
                     <p class="game__player-name">Computer</p>
                 </div>
             </div>

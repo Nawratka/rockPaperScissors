@@ -11,14 +11,11 @@ Option number reference:
 3 - SCISSORS
 */
 
-const controlStart = function (amount) {
-  model.state.currRound = 0;
-
-  // SET WINNING SCORE
-  model.state.toScore = amount;
-  startView._newGameContainer.classList.add('hidden');
-
+const controlStart = function () {
   // CHANGE VIEW FROM START POINT TO GAME VIEW
+  document.querySelector('.game__new-game').classList.add('hidden');
+
+  // RENDER PLAY GAME BOARD
   gameView.render();
 
   // START LISTEN TO CHOOSING MOVES
@@ -26,12 +23,10 @@ const controlStart = function (amount) {
 };
 
 const controlGame = function (playerChoice) {
-  model.state.currRound++;
-
   // DEFINE COMPUTER'S CHOICE
   const computerChoice = model.choiceOfComputer();
 
-  // DISPLAY CURRENT CHOICES ON BOARD
+  // DISPLAY CURRENT CHOICES ICONS ON BOARD
   gameView.renderChoices(playerChoice, computerChoice);
 
   // WHO GETS POINT
@@ -43,24 +38,46 @@ const controlGame = function (playerChoice) {
     model.state.computerScore
   );
 
+  // REMOVE PREV CHOICES ICONS FROM BOARD USING ANIMATION
+  gameView.removePrevChoices();
+
   // CHECK IF END OF GAME AND WHO FINALLY WINS
   if (model.checkScores()) {
-    let winner = model.state.playerScore === +model.state.toScore ? 'player' : 'computer';
-    const playContainer = document.querySelector('.game__play')
-    playContainer.classList.add('hidden')
-    endView.render(winner);
-    endView.addHandlerNewGameBtn(prepareNewGame);
-  } else
-  // REMOVE PREV CHOICES ICONS FROM BOARD
-  gameView.removePrevChoices();
+    setTimeout(() => {
+      // TO HANDLE PREV SET ANIMATION
+      let winner =
+        model.state.playerScore === +model.state.toScore
+          ? 'player'
+          : 'computer';
+      // DISPLAY WINNER
+      endView.render(winner);
+
+      // CHANGE VIEWS
+      document.querySelector('.game__play').classList.add('hidden');
+      endView.addHandlerNewGameBtn(prepareNewGame);
+    }, 1400);
+  }
 };
 
-// START GAME FROM BEGIN + CLEAR STATE
-const prepareNewGame = function() {
-  console.log('nowa gra');
-}
+const prepareNewGame = function () {
+  // CLEAR CURRENT GAME STATE
+  model.state.playerScore = 0;
+  model.state.computerScore = 0;
+  model.state.toScore = 1;
+
+  // REMOVE PLAY VIEW AND END VIEW FROM GAME-MAIN CONTAINER
+  const gameBox = document.querySelector('.game');
+  const newGameBox = document.querySelector('.game__new-game');
+  const playBox = document.querySelector('.game__play');
+  const endBox = document.querySelector('.game__end');
+  gameBox.removeChild(playBox);
+  gameBox.removeChild(endBox);
+
+  // // CHANGE VIEW FROM END POINT TO GAME NEW GAME
+  newGameBox.classList.remove('hidden');
+};
 
 const init = function () {
-  startView.addHandlerStart(controlStart);
+  startView.render(controlStart);
 };
 init();
