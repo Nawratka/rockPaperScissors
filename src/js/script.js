@@ -4,6 +4,8 @@ import gameView from './views/gameView.js';
 import 'core-js/stable';
 import endView from './views/endView.js';
 
+const SEC_TO_SHOW_END = 1.3
+
 /*
 Option number reference: 
 1 - ROCK
@@ -55,7 +57,7 @@ const controlGame = function (playerChoice) {
       // CHANGE VIEWS
       document.querySelector('.game__play').classList.add('hidden');
       endView.addHandlerNewGameBtn(prepareNewGame);
-    }, 1400);
+    }, SEC_TO_SHOW_END * 1000);
   }
 };
 

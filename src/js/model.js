@@ -31,7 +31,7 @@ export const choiceOfComputer = function () {
 export const awardingPoint = function (playerChoice, computerChoice) {
   // REMIS
   if (playerChoice === computerChoice) return;
-
+  
   // ROCK
   if (playerChoice === 'rock' && computerChoice === 'paper') {
     state.computerScore++;
