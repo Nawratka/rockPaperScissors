@@ -19,7 +19,7 @@ class startView {
   _generateMarkup() {
     return `    
     <div class="game__new-game">
-        <p class="game__question">Choose amount of games: </p>
+        <p class="game__question">Number of games: </p>
         <span class="game__amount" data-amount="1">1</span>
         <span class="game__amount" data-amount="3">3</span>
         <span class="game__amount" data-amount="5">5</span>

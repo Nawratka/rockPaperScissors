@@ -1,6 +1,6 @@
 # Rock Paper Scissors Game
 
-LIVE: 
+LIVE: https://rockpaperscissors-kamilan.netlify.app/
 
 Funny short game, in case of studying JS native
 
