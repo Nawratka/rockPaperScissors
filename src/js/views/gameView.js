@@ -40,7 +40,7 @@ class gameView {
   addHandlerMove(handler) {
     const movesContainer = document.querySelector('.game__options');
     movesContainer.addEventListener('click', function (e) {
-      if (!movesContainer) return;
+      if (!movesContainer || !e.target.classList.contains('game__option')) return;
       const choice = e.target.dataset.option;
       handler(choice);
     });
@@ -70,6 +70,9 @@ class gameView {
   }
 
   removePrevChoices() {
+    document.querySelectorAll('.game__options').forEach(option => {
+      option.style.pointerEvents = 'none';
+    })
     const playerBoard = document.querySelector('.game__part--player');
     const computerBoard = document.querySelector('.game__part--computer');
 
@@ -79,6 +82,10 @@ class gameView {
     playerBoard.addEventListener('animationend', () => {
       playerBoard.innerHTML = '';
       playerBoard.classList.remove('addAnimationLeft');
+
+      document.querySelectorAll('.game__options').forEach(option => {
+        option.style.pointerEvents = 'auto';
+      })
     });
 
     computerBoard.addEventListener('animationend', () => {
